@@ -13,7 +13,7 @@
 		33522444250F76E100D97F6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33522443250F76E100D97F6C /* Preview Assets.xcassets */; };
 		3352244D250F779500D97F6C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352244C250F779500D97F6C /* Store.swift */; };
 		336BC8C0250F95B500A5EC29 /* CounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BC8BF250F95B500A5EC29 /* CounterTests.swift */; };
-		336BC8C8250F95C900A5EC29 /* ReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BC8C7250F95C900A5EC29 /* ReducerTests.swift */; };
+		336BC8C8250F95C900A5EC29 /* TransactionrReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BC8C7250F95C900A5EC29 /* TransactionrReducerTests.swift */; };
 		336BC8CC250F99E700A5EC29 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BC8CB250F99E700A5EC29 /* AppState.swift */; };
 		336BC8CE250F9A0700A5EC29 /* TransactionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BC8CD250F9A0700A5EC29 /* TransactionState.swift */; };
 		336BC8D1250F9AAA00A5EC29 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BC8D0250F9AAA00A5EC29 /* AppAction.swift */; };
@@ -43,7 +43,7 @@
 		336BC8BD250F95B500A5EC29 /* CounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		336BC8BF250F95B500A5EC29 /* CounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTests.swift; sourceTree = "<group>"; };
 		336BC8C1250F95B500A5EC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		336BC8C7250F95C900A5EC29 /* ReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducerTests.swift; sourceTree = "<group>"; };
+		336BC8C7250F95C900A5EC29 /* TransactionrReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionrReducerTests.swift; sourceTree = "<group>"; };
 		336BC8CB250F99E700A5EC29 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		336BC8CD250F9A0700A5EC29 /* TransactionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionState.swift; sourceTree = "<group>"; };
 		336BC8D0250F9AAA00A5EC29 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				336BC8BF250F95B500A5EC29 /* CounterTests.swift */,
-				336BC8C7250F95C900A5EC29 /* ReducerTests.swift */,
+				336BC8C7250F95C900A5EC29 /* TransactionrReducerTests.swift */,
 				336BC8C1250F95B500A5EC29 /* Info.plist */,
 			);
 			path = CounterTests;
@@ -280,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				336BC8C8250F95C900A5EC29 /* ReducerTests.swift in Sources */,
+				336BC8C8250F95C900A5EC29 /* TransactionrReducerTests.swift in Sources */,
 				336BC8C0250F95B500A5EC29 /* CounterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
