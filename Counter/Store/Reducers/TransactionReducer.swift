@@ -13,7 +13,7 @@ enum TransactionReducer {
 
 extension TransactionReducer {
   static func validatedTransactionState(_ currentTransactionState: TransactionState) -> TransactionState {
-    if currentTransactionState.balance > 1 {
+    if currentTransactionState.balance >= 1 {
       return TransactionState(balance: currentTransactionState.balance - 1)
     }
     
