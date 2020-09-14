@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CounterApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      let appState = AppState(transaction: TransactionState(balance: 0))
+      let store = Store(appState: appState)
+      ContentView().environmentObject(store)
     }
+  }
 }
