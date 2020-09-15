@@ -91,10 +91,12 @@
 		3352243B250F76DF00D97F6C /* Counter */ = {
 			isa = PBXGroup;
 			children = (
-				336BC8C9250F99CE00A5EC29 /* New Group */,
 				3352244B250F778800D97F6C /* Store */,
+				336BC8CA250F99D600A5EC29 /* States */,
+				336BC8D4250F9BAF00A5EC29 /* Reducers */,
+				336BC8CF250F9A8700A5EC29 /* Actions */,
+				336BC8C9250F99CE00A5EC29 /* Views */,
 				3352243C250F76DF00D97F6C /* CounterApp.swift */,
-				3352243E250F76DF00D97F6C /* ContentView.swift */,
 				33522440250F76E100D97F6C /* Assets.xcassets */,
 				33522445250F76E100D97F6C /* Info.plist */,
 				33522442250F76E100D97F6C /* Preview Content */,
@@ -113,9 +115,6 @@
 		3352244B250F778800D97F6C /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				336BC8D4250F9BAF00A5EC29 /* Reducers */,
-				336BC8CF250F9A8700A5EC29 /* Actions */,
-				336BC8CA250F99D600A5EC29 /* States */,
 				3352244C250F779500D97F6C /* Store.swift */,
 			);
 			path = Store;
@@ -131,11 +130,12 @@
 			path = CounterTests;
 			sourceTree = "<group>";
 		};
-		336BC8C9250F99CE00A5EC29 /* New Group */ = {
+		336BC8C9250F99CE00A5EC29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3352243E250F76DF00D97F6C /* ContentView.swift */,
 			);
-			path = "New Group";
+			path = Views;
 			sourceTree = "<group>";
 		};
 		336BC8CA250F99D600A5EC29 /* States */ = {
