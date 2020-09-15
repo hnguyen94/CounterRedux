@@ -9,6 +9,13 @@ struct TransactionState {
   
   let balance: Int
   let requestState: RequestState
+  let isFallbackState: Bool
+  
+  init(balance: Int, requestState: RequestState, isFallbackState: Bool = false) {
+    self.balance = balance
+    self.requestState = requestState
+    self.isFallbackState = isFallbackState
+  }
 }
 
 extension TransactionState: Equatable {}

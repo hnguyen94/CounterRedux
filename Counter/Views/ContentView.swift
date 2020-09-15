@@ -54,7 +54,7 @@ extension TransactionState.RequestState {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    let appState = AppState(transaction: TransactionState(balance: 0, requestState: .initial))
+    let appState = AppState(transaction: TransactionState(balance: 0, requestState: .initial, isFallbackState: false))
     let store = Store(appState: appState)
     ContentView().environmentObject(store)
   }

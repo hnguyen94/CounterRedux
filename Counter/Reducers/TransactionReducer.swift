@@ -8,6 +8,8 @@ enum TransactionReducer {
       
     case let .deposit(unformattedMoney):
       return Self.depositHandler(currentState: state, unformattedMoney: unformattedMoney)
+    case .reset:
+      fatalError()
     }
   }
 }
@@ -15,25 +17,39 @@ enum TransactionReducer {
 // MARK: - Helpers
 
 extension TransactionReducer {
-  static func withdrawHandler(currentState: TransactionState, unformattedMoney: String) -> TransactionState {
+  static func validateState(currentState: TransactionState, unformattedMoney: String) -> TransactionState {
     guard let formattedMoney = unformattedMoney.formattedMoney else {
-      return TransactionState(balance: currentState.balance, requestState: .failed(.failedFormatting))
+      return TransactionState(balance: currentState.balance, requestState: .failed(.failedFormatting), isFallbackState: true)
     }
     
     guard formattedMoney != 0 else {
-      return TransactionState(balance: currentState.balance, requestState: .initial)
+      return TransactionState(balance: currentState.balance, requestState: .initial, isFallbackState: true)
     }
     
-    let calculatedBalance = currentState.balance.withdrawn(with: formattedMoney)
+    let temporaryState = TransactionState(
+      balance: formattedMoney,
+      requestState: currentState.requestState,
+      isFallbackState: false
+    )
+    
+    return temporaryState
+  }
+  
+  static func withdrawHandler(currentState: TransactionState, unformattedMoney: String) -> TransactionState {
+    let validatedState = Self.validateState(currentState: currentState, unformattedMoney: unformattedMoney)
+    
+    if validatedState.isFallbackState { return validatedState }
+    
+    let calculatedBalance = currentState.balance.withdrawn(with: validatedState.balance)
     return TransactionState(balance: calculatedBalance, requestState: .succeed)
   }
   
   static func depositHandler(currentState: TransactionState, unformattedMoney: String) -> TransactionState {
-    guard let formattedMoney = unformattedMoney.formattedMoney else {
-      return TransactionState(balance: currentState.balance, requestState: .failed(.failedFormatting))
-    }
+    let validatedState = Self.validateState(currentState: currentState, unformattedMoney: unformattedMoney)
     
-    let calculatedBalance = currentState.balance.deposited(with: formattedMoney)
+    if validatedState.isFallbackState { return validatedState }
+    
+    let calculatedBalance = currentState.balance.deposited(with: validatedState.balance)
     return TransactionState(balance: calculatedBalance, requestState: .succeed)
   }
 }

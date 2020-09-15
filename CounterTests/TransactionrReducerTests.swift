@@ -44,7 +44,7 @@ class TransactionReducerTests: XCTestCase {
     let transactionStateUnderTest = TransactionReducer.makeTransactionState(transactionState, .deposit("laksjdlkasjd!l-"))
     
     // Then
-    XCTAssertEqual(transactionStateUnderTest, .init(balance: 0, requestState: .failed(.failedFormatting)))
+    XCTAssertEqual(transactionStateUnderTest, .init(balance: 0, requestState: .failed(.failedFormatting), isFallbackState: true))
   }
   
   func test_transactionReducer_whenWithdrawWithEmptyTextField_expectRequestStateSucceed() {
@@ -55,6 +55,17 @@ class TransactionReducerTests: XCTestCase {
     let transactionStateUnderTest = TransactionReducer.makeTransactionState(transactionState, .withdraw(""))
     
     // Then
-    XCTAssertEqual(transactionStateUnderTest, .init(balance: 0, requestState: .initial))
+    XCTAssertEqual(transactionStateUnderTest, .init(balance: 0, requestState: .initial, isFallbackState: true))
+  }
+  
+  func test_transactionReducer_whenDepositWithEmptyTextField_expectRequestStateSucceed() {
+    // Given
+    let transactionState = TransactionState(balance: 0, requestState: .initial)
+    
+    // When
+    let transactionStateUnderTest = TransactionReducer.makeTransactionState(transactionState, .deposit(""))
+    
+    // Then
+    XCTAssertEqual(transactionStateUnderTest, .init(balance: 0, requestState: .initial, isFallbackState: true))
   }
 }
