@@ -1,6 +1,6 @@
 import Foundation
 
 enum TransactionAction {
-  case withdraw
-  case deposit
+  case withdraw(String)
+  case deposit(String)
 }

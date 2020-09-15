@@ -2,18 +2,27 @@ import SwiftUI
 
 struct ContentView: View {
   @EnvironmentObject var store: Store
+  @State var money: String = ""
   
   var body: some View {
     VStack {
-      Text("\(store.appState.transaction.balance) €")
+      Text("\(store.appState.transaction.balance)€")
         .padding()
-      Button("Deposit Money") {
-        store.dispatch(.transaction(.deposit))
-      }
       
-      Button("Withdraw Money") {
-        store.dispatch(.transaction(.withdraw))
+      TextField("e.g. 100€", text: $money)
+        .padding()
+
+      HStack {
+        Button("Deposit Money") {
+          store.dispatch(.transaction(.deposit(money)))
+        }
+        
+        Button("Withdraw Money") {
+          store.dispatch(.transaction(.withdraw(money)))
+        }
       }
+
+
     }
   }
 }

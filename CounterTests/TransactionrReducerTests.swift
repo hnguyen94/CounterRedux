@@ -7,22 +7,22 @@ class TransactionReducerTests: XCTestCase {
     let transactionState = TransactionState(balance: 2)
     
     // When
-    let transactionStateUnderTest = TransactionReducer.makeTransactionState(transactionState, .withdraw)
+    let transactionStateUnderTest = TransactionReducer.makeTransactionState(transactionState, .withdraw("1"))
     
     // Then
     XCTAssertEqual(transactionStateUnderTest, .init(balance: 1))
     
   }
   
-  func test_transactionReducer_whenWithdraw_expectBalanceToBe0() {
+  func test_transactionReducer_whenWithdraw_expectBalanceToBeNegative() {
     // Given
-    let transactionState = TransactionState(balance: 1)
+    let transactionState = TransactionState(balance: 0)
     
     // When
-    let transactionStateUnderTest = TransactionReducer.makeTransactionState(transactionState, .withdraw)
+    let transactionStateUnderTest = TransactionReducer.makeTransactionState(transactionState, .withdraw("1"))
     
     // Then
-    XCTAssertEqual(transactionStateUnderTest, .init(balance: 0))
+    XCTAssertEqual(transactionStateUnderTest, .init(balance: -1))
   }
   
   func test_transactionReducer_whenDeposit_expectBalanceToBe1() {
@@ -30,7 +30,7 @@ class TransactionReducerTests: XCTestCase {
     let transactionState = TransactionState(balance: 0)
     
     // When
-    let transactionStateUnderTest = TransactionReducer.makeTransactionState(transactionState, .deposit)
+    let transactionStateUnderTest = TransactionReducer.makeTransactionState(transactionState, .deposit("1"))
     
     // Then
     XCTAssertEqual(transactionStateUnderTest, .init(balance: 1))
