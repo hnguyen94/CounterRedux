@@ -23,6 +23,10 @@ struct ContentView: View {
         Button("Withdraw Money") {
           store.dispatch(.transaction(.withdraw(money)))
         }
+      }.padding()
+      
+      Button("Reset Money") {
+        
       }
       
       
@@ -32,7 +36,7 @@ struct ContentView: View {
 
 // MARK: - View Logic
 
-private extension TransactionState.RequestState {
+extension TransactionState.RequestState {
   var resultColor: Color {
     switch self {
     case .succeed:

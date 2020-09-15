@@ -46,4 +46,15 @@ class TransactionReducerTests: XCTestCase {
     // Then
     XCTAssertEqual(transactionStateUnderTest, .init(balance: 0, requestState: .failed(.failedFormatting)))
   }
+  
+  func test_transactionReducer_whenWithdrawWithEmptyTextField_expectRequestStateSucceed() {
+    // Given
+    let transactionState = TransactionState(balance: 0, requestState: .initial)
+    
+    // When
+    let transactionStateUnderTest = TransactionReducer.makeTransactionState(transactionState, .withdraw(""))
+    
+    // Then
+    XCTAssertEqual(transactionStateUnderTest, .init(balance: 0, requestState: .initial))
+  }
 }
