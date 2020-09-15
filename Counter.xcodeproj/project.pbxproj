@@ -94,9 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				3352243B250F76DF00D97F6C /* Counter */,
-				33522445250F76E100D97F6C /* Info.plist */,
-				3352243C250F76DF00D97F6C /* CounterApp.swift */,
-				33522440250F76E100D97F6C /* Assets.xcassets */,
 				336BC8BE250F95B500A5EC29 /* CounterTests */,
 				3352243A250F76DF00D97F6C /* Products */,
 			);
@@ -115,9 +112,12 @@
 			isa = PBXGroup;
 			children = (
 				33409BB52510F872006112F6 /* Modules */,
-				33522442250F76E100D97F6C /* Preview Content */,
 				33409BB62510F8AC006112F6 /* Services */,
 				336BC8C9250F99CE00A5EC29 /* Views */,
+				33522442250F76E100D97F6C /* Preview Content */,
+				33522445250F76E100D97F6C /* Info.plist */,
+				3352243C250F76DF00D97F6C /* CounterApp.swift */,
+				33522440250F76E100D97F6C /* Assets.xcassets */,
 			);
 			path = Counter;
 			sourceTree = "<group>";
