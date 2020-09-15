@@ -1,19 +1,23 @@
 import Foundation
 
 struct TransactionState {
-  enum RequestState: Equatable {
+  enum Progress: Equatable {
     case succeed
     case failed(TransactionError)
     case initial
   }
   
+  /// The current balance of the user.
   let balance: Int
-  let requestState: RequestState
+  /// The `progress` is the state of the transaction itself
+  let progress: Progress
+  /// The `fallBackState` will be set to true when the validation isn't satisfied
+  /// and will be used in `TransactionReducer` to handle either the succeeded calculation or the "invalid" formatting.
   let isFallbackState: Bool
   
-  init(balance: Int, requestState: RequestState, isFallbackState: Bool = false) {
+  init(balance: Int, progress: Progress, isFallbackState: Bool = false) {
     self.balance = balance
-    self.requestState = requestState
+    self.progress = progress
     self.isFallbackState = isFallbackState
   }
 }
@@ -24,5 +28,4 @@ extension TransactionState: Equatable {}
 
 enum TransactionError: Error {
   case failedFormatting
-  case bar
 }

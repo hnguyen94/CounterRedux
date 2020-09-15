@@ -19,16 +19,16 @@ enum TransactionReducer {
 extension TransactionReducer {
   static func validateState(currentState: TransactionState, unformattedMoney: String) -> TransactionState {
     guard let formattedMoney = unformattedMoney.formattedMoney else {
-      return TransactionState(balance: currentState.balance, requestState: .failed(.failedFormatting), isFallbackState: true)
+      return TransactionState(balance: currentState.balance, progress: .failed(.failedFormatting), isFallbackState: true)
     }
     
     guard formattedMoney != 0 else {
-      return TransactionState(balance: currentState.balance, requestState: .initial, isFallbackState: true)
+      return TransactionState(balance: currentState.balance, progress: .initial, isFallbackState: true)
     }
     
     let temporaryState = TransactionState(
       balance: formattedMoney,
-      requestState: currentState.requestState,
+      progress: currentState.progress,
       isFallbackState: false
     )
     
@@ -41,7 +41,7 @@ extension TransactionReducer {
     if validatedState.isFallbackState { return validatedState }
     
     let calculatedBalance = currentState.balance.withdrawn(with: validatedState.balance)
-    return TransactionState(balance: calculatedBalance, requestState: .succeed)
+    return TransactionState(balance: calculatedBalance, progress: .succeed)
   }
   
   static func depositHandler(currentState: TransactionState, unformattedMoney: String) -> TransactionState {
@@ -50,7 +50,7 @@ extension TransactionReducer {
     if validatedState.isFallbackState { return validatedState }
     
     let calculatedBalance = currentState.balance.deposited(with: validatedState.balance)
-    return TransactionState(balance: calculatedBalance, requestState: .succeed)
+    return TransactionState(balance: calculatedBalance, progress: .succeed)
   }
 }
 

@@ -7,7 +7,7 @@ struct ContentView: View {
   var body: some View {
     VStack {
       Text("Status")
-        .foregroundColor(store.appState.transaction.requestState.resultColor)
+        .foregroundColor(store.appState.transaction.progress.resultColor)
       
       Text("\(store.appState.transaction.balance)€")
         .padding()
@@ -36,7 +36,7 @@ struct ContentView: View {
 
 // MARK: - View Logic
 
-extension TransactionState.RequestState {
+extension TransactionState.Progress {
   var resultColor: Color {
     switch self {
     case .succeed:
@@ -54,7 +54,7 @@ extension TransactionState.RequestState {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    let appState = AppState(transaction: TransactionState(balance: 0, requestState: .initial, isFallbackState: false))
+    let appState = AppState(transaction: TransactionState(balance: 0, progress: .initial, isFallbackState: false))
     let store = Store(appState: appState)
     ContentView().environmentObject(store)
   }
