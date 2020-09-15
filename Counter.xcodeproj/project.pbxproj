@@ -72,10 +72,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33409BB52510F872006112F6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				336BC8CF250F9A8700A5EC29 /* Actions */,
+				336BC8D4250F9BAF00A5EC29 /* Reducers */,
+				336BC8CA250F99D600A5EC29 /* States */,
+				3352244B250F778800D97F6C /* Store */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		33409BB62510F8AC006112F6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		33522430250F76DF00D97F6C = {
 			isa = PBXGroup;
 			children = (
 				3352243B250F76DF00D97F6C /* Counter */,
+				33522445250F76E100D97F6C /* Info.plist */,
+				3352243C250F76DF00D97F6C /* CounterApp.swift */,
+				33522440250F76E100D97F6C /* Assets.xcassets */,
 				336BC8BE250F95B500A5EC29 /* CounterTests */,
 				3352243A250F76DF00D97F6C /* Products */,
 			);
@@ -93,15 +114,10 @@
 		3352243B250F76DF00D97F6C /* Counter */ = {
 			isa = PBXGroup;
 			children = (
-				3352244B250F778800D97F6C /* Store */,
-				336BC8CA250F99D600A5EC29 /* States */,
-				336BC8D4250F9BAF00A5EC29 /* Reducers */,
-				336BC8CF250F9A8700A5EC29 /* Actions */,
-				336BC8C9250F99CE00A5EC29 /* Views */,
-				3352243C250F76DF00D97F6C /* CounterApp.swift */,
-				33522440250F76E100D97F6C /* Assets.xcassets */,
-				33522445250F76E100D97F6C /* Info.plist */,
+				33409BB52510F872006112F6 /* Modules */,
 				33522442250F76E100D97F6C /* Preview Content */,
+				33409BB62510F8AC006112F6 /* Services */,
+				336BC8C9250F99CE00A5EC29 /* Views */,
 			);
 			path = Counter;
 			sourceTree = "<group>";
