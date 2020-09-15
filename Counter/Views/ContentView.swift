@@ -10,6 +10,7 @@ struct ContentView: View {
         .foregroundColor(store.appState.transaction.progress.resultColor)
       
       Text("\(store.appState.transaction.balance)€")
+        .foregroundColor(store.appState.transaction.balance.balanceColor)
         .padding()
       
       TextField("e.g. 100€", text: $money)
@@ -18,15 +19,18 @@ struct ContentView: View {
       HStack {
         Button("Deposit Money") {
           store.dispatch(.transaction(.deposit(money)))
+          money = ""
         }
         
         Button("Withdraw Money") {
           store.dispatch(.transaction(.withdraw(money)))
+          money = ""
         }
       }.padding()
       
       Button("Reset Money") {
-        
+        store.dispatch(.transaction(.reset))
+        money = ""
       }
       
       
@@ -45,6 +49,19 @@ extension TransactionState.Progress {
       return .red
     case .initial:
       return .gray
+    }
+  }
+}
+
+private extension Int {
+  var balanceColor: Color {
+    switch self {
+    case _ where self > 0:
+    return .green
+    case _ where self < 0:
+    return .red
+    default:
+      return .black
     }
   }
 }

@@ -9,7 +9,7 @@ enum TransactionReducer {
     case let .deposit(unformattedMoney):
       return Self.depositHandler(currentState: state, unformattedMoney: unformattedMoney)
     case .reset:
-      fatalError()
+      return .init(balance: 0, progress: .initial)
     }
   }
 }
